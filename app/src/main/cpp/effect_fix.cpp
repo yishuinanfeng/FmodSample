@@ -6,6 +6,7 @@
 #include "inc/fmod.hpp"
 #include <stdlib.h>
 #include <android/log.h>
+#include <unistd.h>
 
 #define NORMAL_MODE 0
 #define LOGI(FORMAT,...) __android_log_print(ANDROID_LOG_INFO,"jason",FORMAT,##__VA_ARGS__);
@@ -34,13 +35,18 @@ JNIEXPORT void JNICALL Java_com_nanfeng_fmoddemo_EffectUtil_fix
 
     switch (type) {
         case NORMAL_MODE:
+            LOGI("%s",path);
             system->playSound(sound, 0, false, &channel);
+            LOGI("%s","fix normal");
             break;
 
         default:
             break;
     }
 
+    system->update();
+
+    usleep(5000*1000);
     env->ReleaseStringUTFChars(path_jstring, path);
 
     sound->release();
