@@ -19,8 +19,21 @@ public class QQActivity extends Activity {
     }
 
     public void mFix(View btn){
-        String path ="file:///android_asset/jaguar.wav";
-        EffectUtil.fix(path,EffectUtil.MODE_NORMAL);
+        String path ="file:///android_asset/swish.wav";
+        switch (btn.getId()){
+            case R.id.btn_record:
+                EffectUtil.fix(path,EffectUtil.MODE_NORMAL);
+                break;
+
+            case R.id.btn_luoli:
+                EffectUtil.fix(path,EffectUtil.MODE_LUOLI);
+                break;
+
+                case R.id.btn_dashu:
+                EffectUtil.fix(path,EffectUtil.MODE_GAOGUAI);
+                break;
+        }
+
     }
 
     @Override
