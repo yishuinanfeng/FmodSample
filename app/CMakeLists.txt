@@ -17,7 +17,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/effects.cpp  src/main/cpp/common_platform.cpp  src/main/cpp/common.cpp)
+             src/main/cpp/effect_fix.cpp )
 
 add_library(libfmod STATIC IMPORTED)
 set_target_properties(libfmod PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI}/libfmod.so)
